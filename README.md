@@ -1,6 +1,6 @@
 # Preparação do Ambiente de Trabalho
 
-esse repositório reúne informações sobre as tecnologias utilizadas para preparação do ambiente de trabalho
+Esse repositório reúne informações sobre as tecnologias utilizadas para preparação do ambiente de trabalho
 
 -Criação de repositório no github
 
