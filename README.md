@@ -2,16 +2,16 @@
 
 Esse repositório reúne informações sobre as tecnologias utilizadas para preparação do ambiente de trabalho
 
--Criação de repositório no github
+- Criação de repositório no github
 
--Markdown
+- Markdown
 
--Licenças
+- Licenças
 
--Comandos linux
+- Comandos linux
 
--Versionamento (git, gitlab/github)
+- Versionamento (git, gitlab/github)
 
--Ambiente Virtual (conda)
+- Ambiente Virtual (conda)
 
--Editor de código (VSCode)
+- Editor de código (VSCode)
