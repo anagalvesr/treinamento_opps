@@ -1,0 +1,9 @@
+name: env_diariosbr_treinamento
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python
+  - selenium
+  - webdriver-manager
+  - tinydb
