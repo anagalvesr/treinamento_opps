@@ -18,7 +18,6 @@ def acessar_pagina_dinamica(link):
     # abrir o link no navegador simulado
     navegador.get(link)
 
-<<<<<<< HEAD
     sleep(3)
 
     caixa_aceiteCookies = navegador.find_element(By.XPATH, "//div[@id=aceiteCookies]").find_element(By.XPATH, "aceiteCookies.btn.btn-toast")
