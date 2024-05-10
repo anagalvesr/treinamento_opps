@@ -17,36 +17,29 @@ def acessar_pagina_dinamica(link):
     navegador = webdriver.Chrome (service=ChromeService(ChromeDriverManager().install()))
     # abrir o link no navegador simulado
     navegador.get(link)
+    # clicar na pasta de cada ano
+    # <ul class="dom-list ">
+    # <li class="directory collapsed">
+    anos = navegador.find_element(By.XPATH,"//ul[@class='dom-list ']").find_elements(By.XPATH,"//li[@class='directory collapsed']")
+    # anos = navegador.find_element(By.XPATH,"//ul[@class='dom-list ']").click()
+    # <a class="dropfile-file-link" href="#" data-id="849">
+    # pdfs = navegador.find_element(By.XPATH,"//li[@class='ext pdf']").click()
+    print (len(anos))
+    # clicar nos links do pdf
+    for ano in anos:
+        ano.click()
+        sleep(5)
+        pdfs = navegador.find_elements(By.XPATH,"//li[@class='ext pdf']")
+        print (len(pdfs))
+        for pdf in pdfs:
+            print (pdf)
+            pdf.find_element(By.XPATH,"//a").click()
+
 
     sleep(3)
 
-    caixa_aceiteCookies = navegador.find_element(By.XPATH, "//div[@id=aceiteCookies]").find_element(By.XPATH, "aceiteCookies.btn.btn-toast")
-    #clicar na caixa content
-    #find_element e find_elements
-    caixa_diarios = navegador.find_element(By.XPATH, "//div[@class='content']").find_elements(By.XPATH, "//div[@class='card border-0']")
-    print(len(caixa_diarios))
-    #print(caixa_diarios)
-    sleep(3)
-    caixa_diarios[3].find_element(By.CSS_SELECTOR, ".btn-purple").click()
-=======
-    #clicar na caixa content
-    #find_element e find_elements
-    #btn btn-toast
-    sleep(10)
-    botao_cookie = WebDriverWait(navegador,10).until(EC.visibility_of_element_located((By.ID,"aceiteCookies")))
-    botao_cookie.click()
-    sleep(10)
-    caixa_diarios = navegador.find_element(By.CSS_SELECTOR, "div.content").find_elements(By.TAG_NAME, "card border-0")
-    print(len(caixa_diarios))
->>>>>>> cd2ec59 (tentativa de avanço na coleta de batatais)
     
-    #clicar em download pdf
-    #find_element e find_elements
-    #download_pdf = navegador.find_element(By.CSS_SELECTOR, "download pdf")
-    #clicar no número nas caixas numeradas ao final da página
-    #find_element e find_elements
-    #caixa_numerada = navegador.find_element(By.CSS_SELECTOR,"número")
-
+    
 def main():
     link = "https://jeriquara.sp.gov.br/dom/"
     acessar_pagina_dinamica(link)
