@@ -29,11 +29,20 @@ def acessar_pagina_dinamica(link):
     for ano in anos:
         ano.click()
         sleep(5)
-        pdfs = navegador.find_elements(By.XPATH,"//li[@class='ext pdf']")
+        pdfs = navegador.find_elements(By.XPATH,"//li[@class='ext pdf']//a[@class=dropfile-file-link]").get_attribute("data-id")
         print (len(pdfs))
+        print (pdfs)
         for pdf in pdfs:
-            print (pdf)
-            pdf.find_element(By.XPATH,"//a").click()
+            pdf.find_element(By.XPATH,"//a[@class='dropfile-file-link']").click()
+            sleep(2)
+            tag_link = pdf.find_element(By.XPATH,"//div[@class='extra-downloadlink']//a[@class='downloadlink']")
+            link_pdf = tag_link.get_attribute("href")
+            print(link_pdf)
+            sleep(3)
+            botao_fechar = pdf.find_element(By.XPATH,"//div[@class='dropblock dropfiles-dropblock-content']//a[@class='dropfiles-close']")
+            botao_fechar.click()
+            sleep(2)
+            continue
 
 
     sleep(3)
